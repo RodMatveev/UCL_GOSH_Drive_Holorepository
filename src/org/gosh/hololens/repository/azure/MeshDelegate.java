@@ -21,7 +21,7 @@ import com.microsoft.azure.storage.file.FileInputStream;
 public class MeshDelegate {
 
     CasePackager packager = new CasePackager();
-    FileManagerDelegate saver = new AzureBlobStorageSaver();
+    FileManagerDelegate saver = new LocalStorageSaver();
 
 
     private Document loadFile(File file) throws TransformerFactoryConfigurationError {

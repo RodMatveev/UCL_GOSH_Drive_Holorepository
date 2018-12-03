@@ -11,7 +11,7 @@ import org.w3c.dom.Document;
 
 public class TagDelegate {
 
-    FileManagerDelegate saver = new AzureBlobStorageSaver();
+    FileManagerDelegate saver = new LocalStorageSaver();
     CasePackager packager = new CasePackager();
 
 

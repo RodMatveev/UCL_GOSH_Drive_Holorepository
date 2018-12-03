@@ -26,7 +26,7 @@ import org.w3c.dom.Node;
 public class CaseStoreDelegate {
 
 
-    FileManagerDelegate saver = new AzureBlobStorageSaver();
+    FileManagerDelegate saver = new LocalStorageSaver();
 
     CasePackager packager = new CasePackager();
     CaseQueryer query = new CaseQueryer();

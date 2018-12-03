@@ -28,7 +28,7 @@ import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 import com.microsoft.azure.storage.blob.ListBlobItem;
 
-public class AzureBlobStorageSaver implements FileManagerDelegate{
+public class LocalStorageSaver implements FileManagerDelegate{
 
     public static final String storageConnectionString = System.getProperty("storage.connection").replace("'", "");
     ;

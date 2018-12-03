@@ -15,7 +15,7 @@ import org.w3c.dom.Document;
 public class AnnotationDelegate {
 
 
-    FileManagerDelegate saver = new AzureBlobStorageSaver();
+    FileManagerDelegate saver = new LocalStorageSaver();
     CasePackager packager = new CasePackager();
 
     public void addAnnotation(String id, String comment, String author) {
