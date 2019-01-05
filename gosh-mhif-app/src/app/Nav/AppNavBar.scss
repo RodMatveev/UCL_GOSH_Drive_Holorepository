@@ -1,0 +1,16 @@
+$border-grey: #EBECEF;
+
+.nav {
+  border-bottom: 1px solid $border-grey;
+  height: 75px;
+}
+
+.logoHolder {
+  border-right: 1px solid $border-grey;
+  height: 100%;
+}
+
+.profileHolder {
+  border-left: 1px solid $border-grey;
+  height: 100%;
+}

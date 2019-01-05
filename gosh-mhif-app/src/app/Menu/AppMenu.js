@@ -24,14 +24,14 @@ constructor(props) {
 
   render() {
     return (
-      <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
-  <NavbarBrand>
-      <NavbarItem>
-          <img src={'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'} style={{ marginRight: 5 }} /> GOSH DRIVE HOLOREPOSITORY
-      </NavbarItem>
-
-      <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
-  </NavbarBrand>
+    <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
+      <NavbarBrand>
+        <NavbarItem>
+            <img src={'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'} style={{ marginRight: 5 }} /> GOSH DRIVE HOLOREPOSITOR
+        </NavbarItem>
+        <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
+      </NavbarBrand>
+    <NavbarBrand />
   <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
       <NavbarStart>
           <NavbarItem href='#/'>Home</NavbarItem>

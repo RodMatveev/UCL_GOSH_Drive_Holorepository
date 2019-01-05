@@ -20,7 +20,7 @@ class HomeScreen extends Component {
     this.handleTagForm = this.handleTagForm.bind(this)
   }
 
-  
+
   handleNameForm(event){
     this.setState({name: event.target.value});
   }
@@ -73,9 +73,6 @@ class HomeScreen extends Component {
              </Content>
            {this.state.cases.map((component, i) => <PatientCase name={component}/>)}
         </div>
-
-
-
     );
   }
 }

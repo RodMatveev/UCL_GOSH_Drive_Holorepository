@@ -33,6 +33,7 @@ class CaseList extends Component {
     request.get(process.env.PUBLIC_URL+"/api/case/")
         .set('Accept', 'application/json')
         .end ((error, res)=>{
+            console.log(res.text)
             let jsonObject = JSON.parse(res.text);
             this.setState({cases:jsonObject.cases})
             console.log(this.state)
@@ -44,7 +45,7 @@ class CaseList extends Component {
 
         <div>
         <div>
-      
+
         <br/>
         </div>
            {this.state.cases.filter((component)=>{
