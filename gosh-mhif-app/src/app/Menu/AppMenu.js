@@ -1,51 +1,35 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarItem ,NavbarBrand,
-         NavbarBurger,NavbarDropdown,NavbarDivider,
-         Icon, Field, Button,
-         Control, NavbarEnd, NavbarLink,
-       NavbarStart, NavbarMenu} from 'bloomer';
+import AppMenuItem from './AppMenuItem'
+import './AppMenu.css';
 
+class AppMenu extends Component {
 
-class AppNavBar extends Component {
+  constructor(props) {
+    super(props);
 
-
-
-constructor(props) {
-  super(props);
-
-  this.state = {isActive:false };
-  this.onClickNav = this.onClickNav.bind(this);
-}
+    this.state = {isActive:false };
+    this.onClickNav = this.onClickNav.bind(this);
+  }
 
   onClickNav(){
     this.setState({isActive:!this.state.isActive})
   }
 
-
   render() {
     return (
-    <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
-      <NavbarBrand>
-        <NavbarItem>
-            <img src={'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'} style={{ marginRight: 5 }} /> GOSH DRIVE HOLOREPOSITOR
-        </NavbarItem>
-        <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
-      </NavbarBrand>
-    <NavbarBrand />
-  <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
-      <NavbarStart>
-          <NavbarItem href='#/'>Home</NavbarItem>
-          <NavbarItem hasDropdown isHoverable>
-              <NavbarLink href='#/documentation'>Documentation</NavbarLink>
-          </NavbarItem>
-      </NavbarStart>
-      <NavbarEnd>
-        <NavbarItem href='#/about'>About</NavbarItem>
-      </NavbarEnd>
-  </NavbarMenu>
-  </Navbar>
+      <div>
+        <AppMenuItem>
+          <a href='#'>Patient Directory</a>
+        </AppMenuItem>
+        <AppMenuItem>
+          <a href='#'>Documentation</a>
+        </AppMenuItem>
+        <AppMenuItem>
+          <a href='#'>About</a>
+        </AppMenuItem>
+      </div>
     );
   }
 }
 
-export default AppNavBar;
+export default AppMenu;

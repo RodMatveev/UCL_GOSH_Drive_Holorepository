@@ -5,12 +5,67 @@ $border-grey: #EBECEF;
   height: 75px;
 }
 
+.row {
+  margin: 0px;
+}
+
+div[class^='col-'], div[class*=' col']{
+  padding: 0px;
+}
+
+// Logo
+
 .logoHolder {
   border-right: 1px solid $border-grey;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+// Breadcrumb
+
+.breadcrumbHolder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbHolder h2 {
+  margin-left: 20px;
+}
+
+// Profile
 
 .profileHolder {
   border-left: 1px solid $border-grey;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profileImg {
+  width: 40px;
+  height: 40px;
+  background-color: $border-grey;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+
+.profileDetailsHolder {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDetailsHolder h3 {
+  margin-left: 15px;
+  padding-top: 5px;
 }

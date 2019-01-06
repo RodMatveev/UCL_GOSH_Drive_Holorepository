@@ -4,6 +4,7 @@ import Scene from './Scene'
 import About from './About'
 //import { Container, Box ,Column,Columns,Breadcrumb, BreadcrumbItem} from 'bloomer';
 import AppNavBar from './app/Nav/AppNavBar'
+import AppMenu from './app/Menu/AppMenu'
 import AppSidePanel from './app/AppSidePanel'
 import CaseList from './caseList'
 import HomeScreen from './HomeScreen'
@@ -58,10 +59,10 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col md={3} style={{backgroundColor: '#FFFFFF'}}>
-              {'Menu here'}
+            <Col md={2} style={{backgroundColor: '#FFFFFF', paddingTop: 50}}>
+              <AppMenu />
             </Col>
-            <Col md={9} style={{backgroundColor: '#F7F8FA', height: 500}}>
+            <Col md={10} style={{backgroundColor: '#F7F8FA', height: 500}}>
               {'Main content here'}
             </Col>
           </Row>
