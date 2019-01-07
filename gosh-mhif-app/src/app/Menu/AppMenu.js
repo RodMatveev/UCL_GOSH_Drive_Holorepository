@@ -17,7 +17,7 @@ class AppMenu extends Component {
 
   render() {
     return (
-      <div>
+      <div className='menuHolder'>
         <AppMenuItem>
           <a href='#'>Patient Directory</a>
         </AppMenuItem>

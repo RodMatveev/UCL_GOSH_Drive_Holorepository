@@ -1,0 +1,16 @@
+$background-grey: #F7F8FA;
+$border-grey: #EBECEF;
+
+.tempFullHeight {
+  position: absolute;
+  bottom: 0;
+  top: 75px;
+  left: 0;
+  right: 0;
+  background-color: $background-grey;
+}
+
+.menu {
+  height: 100%;
+  border-right: 1px solid $border-grey;
+}

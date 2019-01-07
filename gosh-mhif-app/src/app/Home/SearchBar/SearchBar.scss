@@ -1,0 +1,25 @@
+$border-grey: #EBECEF;
+$blur-grey: #F0F1F3;
+
+.searchBg {
+  width: 65%;
+  height: 60px;
+  border: 1px solid $border-grey;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 5px 9px $blur-grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchIcon {
+  margin-left: 25px;
+  height: 25%;
+  width: auto;
+}
+
+.searchBg input {
+  margin-left: 15px;
+  width: 70%;
+}

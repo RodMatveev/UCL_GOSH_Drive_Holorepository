@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Scene from './Scene'
 import About from './About'
-//import { Container, Box ,Column,Columns,Breadcrumb, BreadcrumbItem} from 'bloomer';
 import AppNavBar from './app/Nav/AppNavBar'
 import AppMenu from './app/Menu/AppMenu'
+import Home from './app/Home/Home'
 import AppSidePanel from './app/AppSidePanel'
 import CaseList from './caseList'
 import HomeScreen from './HomeScreen'
@@ -16,6 +16,7 @@ import Add from './Add'
 import { HashRouter as Router, Route, Link,Switch
  } from "react-router-dom";
 import { Grid, Row, Col, Navbar } from 'react-bootstrap';
+import './App.css';
 
 class App extends Component {
 
@@ -59,12 +60,14 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col md={2} style={{backgroundColor: '#FFFFFF', paddingTop: 50}}>
-              <AppMenu />
-            </Col>
-            <Col md={10} style={{backgroundColor: '#F7F8FA', height: 500}}>
-              {'Main content here'}
-            </Col>
+            <div className='tempFullHeight'>
+              <Col md={2} style={{paddingTop: 50, backgroundColor: '#FFFFFF'}} className='menu'>
+                <AppMenu />
+              </Col>
+              <Col md={10} style={{backgroundColor: '#00000000'}}>
+                <Home />
+              </Col>
+            </div>
           </Row>
         </Grid>
       </div>

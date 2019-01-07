@@ -1,5 +1,7 @@
 @import 'bulma/bulma';
 
+// Fonts
+
 @font-face {
   font-family: 'Harmonia';
   font-style: normal;
@@ -33,6 +35,11 @@
        url('./fonts/Bold/HarmoniaSansW01-Bold.woff'),
 }
 
+// Colours
+
+$border-grey: #EBECEF;
+$text-black: #1B1C1E;
+
 h2 {
   font-family: 'Harmonia', sans-serif;
   font-weight: 400;
@@ -46,4 +53,12 @@ h3 {
 .semiText {
   font-family: 'Harmonia', sans-serif;
   font-weight: 500;
+}
+
+a, a:link, a:visited {
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 500;
+  font-size: 0.85em;
+  color: $text-black;
+  text-decoration: none;
 }
