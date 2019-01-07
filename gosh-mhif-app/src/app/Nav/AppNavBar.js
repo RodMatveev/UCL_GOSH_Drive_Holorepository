@@ -29,7 +29,7 @@ class AppNavBar extends Component {
           <Col md={3} className='profileHolder'>
             <div className='profileImg'></div>
             <div className='profileDetailsHolder'>
-              <h3>Dr Sally Davis</h3>
+              <h3><span className="semiText">Dr Sally Davis</span></h3>
               <h3>University College Hospital</h3>
             </div>
           </Col>

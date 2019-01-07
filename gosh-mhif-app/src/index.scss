@@ -1,1 +1,49 @@
 @import 'bulma/bulma';
+
+@font-face {
+  font-family: 'Harmonia';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Regular/HarmoniaSansRegular.ttf');
+  src: url('./fonts/Regular/HarmoniaSansRegular.eot'),
+       url('./fonts/Regular/HarmoniaSansRegular.woff2'),
+       url('./fonts/Regular/HarmoniaSansW01-Regular.svg'),
+       url('./fonts/Regular/HarmoniaSansW01-Regular.woff'),
+}
+
+@font-face {
+  font-family: 'Harmonia';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/Semi/HarmoniaSansSemibold.ttf');
+  src: url('./fonts/Semi/HarmoniaSansSemibold.eot'),
+       url('./fonts/Semi/HarmoniaSansSemibold.woff2'),
+       url('./fonts/Semi/HarmoniaSansW01-Semibold.svg'),
+       url('./fonts/Semi/HarmoniaSansW01-Semibold.woff'),
+}
+
+@font-face {
+  font-family: 'Harmonia';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/Bold/HarmoniaSansBold.ttf');
+  src: url('./fonts/Bold/HarmoniaSansBold.eot'),
+       url('./fonts/Bold/HarmoniaSansBold.woff2'),
+       url('./fonts/Bold/HarmoniaSansW01-Bold.svg'),
+       url('./fonts/Bold/HarmoniaSansW01-Bold.woff'),
+}
+
+h2 {
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 400;
+}
+
+.semiText {
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 500;
+}
