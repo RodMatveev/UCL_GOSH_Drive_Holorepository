@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar/SearchBar'
+import PatientCard from './PatientCard/PatientCard'
 import './Home.css';
 
 class Home extends Component {
@@ -10,8 +11,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='searchBarHolder'>
-        <SearchBar />
+      <div>
+        <div className='searchBarHolder'>
+          <SearchBar />
+        </div>
+        <div className='patientCardsHolder'>
+          <PatientCard />
+        </div>
       </div>
     );
   }
