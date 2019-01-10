@@ -22,10 +22,10 @@ class AppMenu extends Component {
           <a href='#'>Patient Directory</a>
         </AppMenuItem>
         <AppMenuItem>
-          <a href='#'>Documentation</a>
+          <a href='#' id='tempDisabled'>Documentation</a>
         </AppMenuItem>
         <AppMenuItem>
-          <a href='#'>About</a>
+          <a href='#' id='tempDisabled'>About</a>
         </AppMenuItem>
       </div>
     );

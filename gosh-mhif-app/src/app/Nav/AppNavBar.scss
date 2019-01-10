@@ -1,5 +1,7 @@
-$border-grey: #EBECEF;
-$text-secondary: #9D9FA4;
+// $border-grey: #EBECEF;
+// $text-secondary: #9D9FA4;
+
+@import "./colours.scss";
 
 .nav {
   border-bottom: 1px solid $border-grey;

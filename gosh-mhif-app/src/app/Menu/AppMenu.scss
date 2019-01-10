@@ -1,6 +1,13 @@
-$text-black: #1B1C1E;
+// $text-black: #1B1C1E;
+// $text-secondary: #9D9FA4;
+
+@import "./colours.scss";
 
 a, a:link, a:visited {
   font-size: 0.85em;
   color: $text-black;
+}
+
+#tempDisabled {
+  color: $text-secondary;
 }

@@ -1,0 +1,45 @@
+@import "./colours.scss";
+
+.ReactTags__selected {
+  display: flex;
+  align-items: center;
+}
+
+.ReactTags__tags {
+  margin-left: 20px;
+}
+
+.ReactTags__tag {
+  margin-right: 10px;
+  padding-left: 18px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 7px;
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 500;
+  font-size: 0.85em;
+  color: $text-blue;
+  background-color: $background-blue;
+  border-radius: 3px;
+}
+
+.ReactTags__remove, .ReactTags__remove:link, .ReactTags__remove:active  {
+  margin-left: 15px;
+  text-decoration: none;
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: $text-blue;
+}
+
+.ReactTags__tagInputField {
+  margin-left: 5px;
+  border-style: none;
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.ReactTags__tagInputField:focus {
+  outline: none;
+}

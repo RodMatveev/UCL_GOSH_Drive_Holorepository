@@ -1,8 +1,10 @@
-$border-grey: #EBECEF;
-$background-blue: #DCEAFF;
-$text-blue: #206AEA;
-$text-black: #1B1C1E;
-$text-secondary: #9D9FA4;
+// $border-grey: #EBECEF;
+// $background-blue: #DCEAFF;
+// $text-blue: #206AEA;
+// $text-black: #1B1C1E;
+// $text-secondary: #9D9FA4;
+
+@import "./colours.scss";
 
 .patientCard {
   width: 300px;

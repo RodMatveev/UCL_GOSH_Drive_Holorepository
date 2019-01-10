@@ -1,4 +1,5 @@
 @import 'bulma/bulma';
+@import './colours.scss';
 
 // Fonts
 
@@ -35,10 +36,7 @@
        url('./fonts/Bold/HarmoniaSansW01-Bold.woff'),
 }
 
-// Colours
-
-$border-grey: #EBECEF;
-$text-black: #1B1C1E;
+// Text
 
 h2 {
   font-family: 'Harmonia', sans-serif;
