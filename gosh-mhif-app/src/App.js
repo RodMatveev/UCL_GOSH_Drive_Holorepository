@@ -5,6 +5,7 @@ import About from './About'
 import AppNavBar from './app/Nav/AppNavBar'
 import AppMenu from './app/Menu/AppMenu'
 import Home from './app/Home/Home'
+import Data from './app/Data/Data'
 import AppSidePanel from './app/AppSidePanel'
 import CaseList from './caseList'
 import HomeScreen from './HomeScreen'
@@ -65,7 +66,7 @@ class App extends Component {
                 <AppMenu />
               </Col>
               <Col md={10} style={{backgroundColor: '#00000000'}}>
-                <Home />
+                <Data />
               </Col>
             </div>
           </Row>

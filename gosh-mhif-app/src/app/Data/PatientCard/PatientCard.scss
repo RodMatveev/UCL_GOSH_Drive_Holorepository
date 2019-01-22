@@ -1,0 +1,126 @@
+// $border-grey: #EBECEF;
+// $background-blue: #DCEAFF;
+// $text-blue: #206AEA;
+// $text-black: #1B1C1E;
+// $text-secondary: #9D9FA4;
+
+@import "./colours.scss";
+
+.patientCard {
+  width: 1000px;
+  height: 240px;
+  background-color: white;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: 0;
+}
+
+.nameIdHolder {
+  height: 78%;
+  width: 100%;
+  border-bottom: 1px solid $border-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.nameIdHolder h4 {
+  font-size: 1.2em;
+  color: $text-black;
+  margin-bottom: 5px;
+}
+
+.nameIdHolder p {
+  font-size: 0.8em;
+  color: $text-secondary;
+}
+
+.initials {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-blue;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.initials p {
+  font-size: 0.9em;
+  color: $text-blue;
+  font-weight: 500;
+}
+
+.buttonHolder {
+  height: 22%;
+}
+
+.profileButton {
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid $border-grey;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  font-size: 0.85em;
+  color: $text-secondary;
+}
+
+.obsvButton{
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid $border-grey;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  font-size: 0.85em;
+  color: $text-blue;
+}
+.condiButton{
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid $border-grey;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  font-size: 0.85em;
+  color: $text-blue;
+}
+.DiagoButton{
+  width: 20%;
+  height: 100%;
+border-style: none;
+  font-size: 0.85em;
+  color: $text-blue;
+}
+.careButton{
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid $border-grey;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  font-size: 0.85em;
+  color: $text-blue;
+}
+
+.genderCard {
+  width: 200px;
+  height: 30px;
+  top: 5em;
+  background-color: grey;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: 0;
+}
+.patientDataHolder {
+  height: 78%;
+  width: 100%;
+  border-bottom: 1px ;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -26,6 +26,7 @@ class AppNavBar extends Component {
           <Col md={7} className='breadcrumbHolder'>
             <h2>Home</h2>
           </Col>
+        
           <Col md={3} className='profileHolder'>
             <div className='profileImg'></div>
             <div className='profileDetailsHolder'>
