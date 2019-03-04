@@ -18,10 +18,8 @@ class SearchBar extends Component {
           <SearchBarInput />
         </div>
         <div className='allOfFilter'>
-          <div className='filterButtonHolder'>
-            <button>Filters</button>
-            <img src={filter} className='filterIcon'/>
-          </div>
+          <img src={filter} className='filterIcon'/>
+          <button>Filters</button>
         </div>
       </div>
     );

@@ -18,7 +18,7 @@ class PatientCard extends Component {
           <p>c8e705a6-2a35-4d63-82ec</p>
         </div>
         <div className='buttonHolder'>
-          <button className='leftButton'>View Profile</button>
+          <button className='leftButton' onClick={(e) => console.log(e)}>View Profile</button>
           <button className='rightButton'>Available Scans</button>
         </div>
       </div>
