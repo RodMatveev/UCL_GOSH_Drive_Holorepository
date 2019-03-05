@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import {
+  Link
+} from "react-router-dom";
 import './PatientCard.css';
+import Data from '../../Data/Data';
 
 class PatientCard extends Component {
 
@@ -18,7 +22,7 @@ class PatientCard extends Component {
           <p>c8e705a6-2a35-4d63-82ec</p>
         </div>
         <div className='buttonHolder'>
-          <button className='leftButton' onClick={(e) => console.log(e)}>View Profile</button>
+          <Link to={`case/1`}><button className='leftButton' onClick={(e) => console.log(e)}>View Profile</button></Link>
           <button className='rightButton'>Available Scans</button>
         </div>
       </div>

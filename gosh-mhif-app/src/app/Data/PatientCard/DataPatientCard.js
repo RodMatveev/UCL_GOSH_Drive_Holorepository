@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PatientCard.css';
+import './DataPatientCard.css';
 
 class PatientCard extends Component {
 
@@ -9,7 +9,7 @@ class PatientCard extends Component {
 
   render() {
     return (
-      <div className='patientCard'>
+      <div className='patientCard wide'>
         <div className='nameIdHolder'>
           <div className='initials'>
             <p>JS</p>

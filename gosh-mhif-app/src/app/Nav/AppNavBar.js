@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar } from 'react-bootstrap';
 import './AppNavBar.css';
 import logo from '../../img/logo.png'
+import { HashRouter as Router, Route, Link
+ } from "react-router-dom";
 
 class AppNavBar extends Component {
 
@@ -17,16 +19,27 @@ class AppNavBar extends Component {
   }
 
   render() {
+    const styles = {
+      breadcrumb: {
+        display: 'flex',
+        flexDirection: 'row'
+      },
+      secondary: {
+        marginLeft: 0
+      }
+    }
     return (
       <Grid fluid={true} style={{margin: 0, padding: 0}}>
         <Row className='nav'>
           <Col md={2} className='logoHolder'>
             <img src={logo} className='logo' />
           </Col>
-          <Col md={7} className='breadcrumbHolder'>
-            <h2>Home</h2>
-          </Col>
-        
+          <Router>
+            <Col md={7} className='breadcrumbHolder'>
+              <Route exact path="/" component={() => <Link to={`/`}><h2>Home</h2></Link>} />
+              <Route path="/case" component={() => <div style={styles.breadcrumb}><Link to={`/`}><h2>Home&nbsp;&nbsp;&nbsp;</h2></Link><h2 style={styles.secondary}>>&nbsp;&nbsp;&nbsp;Patient</h2></div>} />
+            </Col>
+          </Router>
           <Col md={3} className='profileHolder'>
             <div className='profileImg'></div>
             <div className='profileDetailsHolder'>

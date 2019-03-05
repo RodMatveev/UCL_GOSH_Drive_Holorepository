@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PatientCard from './PatientCard/PatientCard'
+import DataPatientCard from './PatientCard/DataPatientCard'
 import './Data.css';
 
 class Data extends Component {
@@ -12,9 +12,9 @@ class Data extends Component {
   render() {
     return (
       <div>
-        
+
         <div className='patientCardsHolder'>
-          <PatientCard />
+          <DataPatientCard />
         </div>
       </div>
     );

@@ -54,6 +54,7 @@ class App extends Component {
       //   </div>
       // </div>
       <div className="App">
+        <Router>
         <Grid fluid={true} style={{margin: 0, padding: 0}}>
           <Row>
             <Col md={12} style={{backgroundColor: '#FFFFFF'}}>
@@ -66,11 +67,13 @@ class App extends Component {
                 <AppMenu />
               </Col>
               <Col md={10} style={{backgroundColor: '#00000000'}}>
-                <Data />
+                <Route exact path="/" component={Home} />
+                <Route path="/case" component={Data} />
               </Col>
             </div>
           </Row>
         </Grid>
+      </Router>
       </div>
     );
   }
