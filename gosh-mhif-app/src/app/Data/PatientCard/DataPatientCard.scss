@@ -10,8 +10,9 @@
   height: 240px;
   background-color: white;
   border-radius: 6px;
-  border-style: none;
-  box-shadow: 0;
+  border: 1px solid $border-grey;
+  box-shadow: 0px 5px 9px $blur-grey;
+  margin-top: 50px;
 }
 
 .wide {
@@ -19,7 +20,7 @@
 }
 
 .nameIdHolder {
-  height: 78%;
+  height: 76%;
   width: 100%;
   border-bottom: 1px solid $border-grey;
   display: flex;
@@ -56,74 +57,66 @@
   font-weight: 500;
 }
 
-.buttonHolder {
-  height: 22%;
+.dataButtonHolder {
+  height: 24%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3px;
 }
 
-.profileButton {
+.dataButtonHolder button{
   width: 20%;
   height: 100%;
-  border-right: 1px solid $border-grey;
-  border-left: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
+  border: 0px;
   font-size: 0.85em;
   color: $text-secondary;
 }
 
-.obsvButton{
-  width: 20%;
-  height: 100%;
-  border-right: 1px solid $border-grey;
-  border-left: 0px;
+#active {
+  color: $text-black;
+  border-bottom: 2px solid $text-blue;
   border-top: 0px;
-  border-bottom: 0px;
-  font-size: 0.85em;
-  color: $text-blue;
-}
-.condiButton{
-  width: 20%;
-  height: 100%;
-  border-right: 1px solid $border-grey;
   border-left: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
-  font-size: 0.85em;
-  color: $text-blue;
-}
-.DiagoButton{
-  width: 20%;
-  height: 100%;
-border-style: none;
-  font-size: 0.85em;
-  color: $text-blue;
-}
-.careButton{
-  width: 20%;
-  height: 100%;
-  border-right: 1px solid $border-grey;
-  border-left: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
-  font-size: 0.85em;
-  color: $text-blue;
+  border-right: 0px;
 }
 
-.genderCard {
-  width: 200px;
-  height: 30px;
-  top: 5em;
-  background-color: grey;
-  border-radius: 6px;
-  border-style: none;
-  box-shadow: 0;
-}
-.patientDataHolder {
-  height: 78%;
-  width: 100%;
-  border-bottom: 1px ;
+.detailHolder {
+  padding: 0px;
+  margin-top: 30px;
+  margin-right: 0px;
+  margin-left: 0px;
   display: flex;
-  align-items: left;
-  justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: auto;
+}
+
+.detailCard {
+  background-color: white;
+  flex: 1 0 31%;
+  padding: 25px;
+  padding-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.detailCard h4 {
+  font-weight: 500;
+  color: $text-secondary;
+  font-size: 0.7em;
+  margin-bottom: 15px;
+}
+
+.scanHolder {
+  background-color: $text-black;
+  width: 100%;
+  margin-top: 60px;
+  margin-right: 0px;
+  height: 350px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
 }

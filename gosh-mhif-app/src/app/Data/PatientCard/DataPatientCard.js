@@ -9,27 +9,51 @@ class PatientCard extends Component {
 
   render() {
     return (
-      <div className='patientCard wide'>
-        <div className='nameIdHolder'>
-          <div className='initials'>
-            <p>JS</p>
+      <div>
+        <div className='patientCard wide'>
+          <div className='nameIdHolder'>
+            <div className='initials'>
+              <p>JS</p>
+            </div>
+            <h4>John Smith</h4>
+            <p>c8e705a6-2a35-4d63-82ec</p>
           </div>
-          <h4>John Smith</h4>
-          <p>c8e705a6-2a35-4d63-82ec</p>
+          <div className='dataButtonHolder'>
+            <button id="active">Profile</button>
+            <button>Observations</button>
+            <button>Conditions</button>
+            <button>Care Plan</button>
+            <button>Diagonistic Report</button>
+          </div>
         </div>
-
-        <div className='buttonHolder'>
-          <button className='profileButton'>Profile</button>
-          <button className='obsvButton'>Observations</button>
-          <button className='condiButton'>Conditions</button>
-          <button className='careButton'>Care Plan</button>
-          <button className='DiagoButton'>Diagonistic Report</button>
-
-        </div>
-        <div className='genderCard'>
-          <div className='patientDataHolder'>
+        <div className="detailHolder wide">
+          <div className="detailCard">
+            <h4>GENDER</h4>
             <p>Male</p>
           </div>
+          <div className="detailCard">
+            <h4>AGE</h4>
+            <p>54 years</p>
+          </div>
+          <div className="detailCard">
+            <h4>DATE OF BIRTH</h4>
+            <p>09-12-1978</p>
+          </div>
+          <div className="detailCard">
+            <h4>EMAIL</h4>
+            <p>Unknown</p>
+          </div>
+          <div className="detailCard">
+            <h4>ADDRESS</h4>
+            <p>Malet Place, Euston<br></br>EC2A 2DF,<br></br>London</p>
+          </div>
+          <div className="detailCard">
+            <h4>ID CODE</h4>
+            <p>c8e705a6-2a35-4d63-82ec</p>
+          </div>
+        </div>
+        <div className="scanHolder">
+
         </div>
       </div>
     );

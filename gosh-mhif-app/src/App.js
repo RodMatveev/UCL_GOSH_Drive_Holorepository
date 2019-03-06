@@ -66,7 +66,7 @@ class App extends Component {
               <Col md={2} style={{paddingTop: 50, backgroundColor: '#FFFFFF'}} className='menu'>
                 <AppMenu />
               </Col>
-              <Col md={10} style={{backgroundColor: '#00000000'}}>
+              <Col className='mainContent' md={10} style={{backgroundColor: '#00000000'}}>
                 <Route exact path="/" component={Home} />
                 <Route path="/case" component={Data} />
               </Col>
