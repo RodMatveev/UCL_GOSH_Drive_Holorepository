@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './DataPatientCard.css';
+import AddModel from '../AddModel/AddModel'
 
 class PatientCard extends Component {
 
@@ -53,7 +54,10 @@ class PatientCard extends Component {
           </div>
         </div>
         <div className="scanHolder">
-
+          <h4>Patient 3D Scans</h4>
+          <div className="scanCardHolder">
+            <AddModel />
+          </div>
         </div>
       </div>
     );

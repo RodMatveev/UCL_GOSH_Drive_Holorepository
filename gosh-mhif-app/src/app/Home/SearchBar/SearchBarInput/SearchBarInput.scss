@@ -18,18 +18,60 @@
   font-family: 'Harmonia', sans-serif;
   font-weight: 500;
   font-size: 0.85em;
-  color: $text-blue;
-  background-color: $background-blue;
+  color: $text-black;
+  background-color: $background-grey;
   border-radius: 3px;
 }
 
-.ReactTags__remove, .ReactTags__remove:link, .ReactTags__remove:active  {
+.ReactTags__remove, .ReactTags__remove:link, .ReactTags__remove:active, .ReactTags__remove:hover {
   margin-left: 15px;
   text-decoration: none;
   font-family: 'Harmonia', sans-serif;
   font-weight: 400;
   font-size: 1.2em;
+}
+
+.blue {
   color: $text-blue;
+  background-color: $background-blue;
+}
+
+.blue .ReactTags__remove {
+  color: $text-blue;
+}
+
+.yellow {
+  background-color: #FFEAC6;
+  color: #E89601;
+}
+
+.yellow .ReactTags__remove {
+  color: #E89601;
+}
+
+.red {
+  background-color: #FFD0DA;
+  color: #FF5858;
+}
+
+.red .ReactTags__remove {
+  color: #FF5858;
+}
+
+.violet {
+  background-color: #ECD4FF;
+  color: #AB60FF;
+}
+
+.violet .ReactTags__remove {
+  color: #AB60FF;
+}
+
+.ReactTags__tagInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .ReactTags__tagInputField {
@@ -42,4 +84,30 @@
 
 .ReactTags__tagInputField:focus {
   outline: none;
+}
+
+.ReactTags__suggestions {
+  font-family: 'Harmonia', sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+  border: 1px solid $border-grey;
+  position: absolute;
+  margin-top: 30px;
+}
+div.ReactTags__suggestions ul {
+    list-style-type: none;
+    background: white;
+    width: 200px;
+}
+div.ReactTags__suggestions li {
+    padding: 5px 10px;
+    margin: 0;
+}
+div.ReactTags__suggestions li mark {
+    background: none;
+    font-weight: 400;
+}
+div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
+    background: $background-grey;
+    cursor: pointer;
 }

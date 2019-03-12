@@ -115,8 +115,19 @@
   width: 100%;
   margin-top: 60px;
   margin-right: 0px;
-  height: 350px;
+  height: auto;
   position: absolute;
   left: 0px;
   right: 0px;
+}
+
+.scanHolder h4 {
+  color: $text-secondary;
+  margin-left: 50px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.scanCardHolder {
+  margin-left: 50px;
 }

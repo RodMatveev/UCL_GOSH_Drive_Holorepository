@@ -6,7 +6,7 @@
 
 @import "./colours.scss";
 
-.patientCard {
+.patientCardHome {
   width: 300px;
   height: 240px;
   background-color: white;
@@ -15,7 +15,7 @@
   box-shadow: 0;
 }
 
-.nameIdHolder {
+.nameIdHolderHome {
   height: 78%;
   width: 100%;
   border-bottom: 1px solid $border-grey;
@@ -25,13 +25,13 @@
   flex-direction: column;
 }
 
-.nameIdHolder h4 {
+.nameIdHolderHome h4 {
   font-size: 1.2em;
   color: $text-black;
   margin-bottom: 5px;
 }
 
-.nameIdHolder p {
+.nameIdHolderHome p {
   font-size: 0.8em;
   color: $text-secondary;
 }
@@ -64,14 +64,22 @@
   border-left: 0px;
   border-top: 0px;
   border-bottom: 0px;
+  margin: 0px;
+  padding: 0px;
   //font-size: 0.85em;
   color: $text-secondary;
+}
+
+#adjustFont {
+  font-size: 0.8rem;
 }
 
 .rightButton{
   width: 50%;
   height: 100%;
   border-style: none;
-  font-size: 0.85em;
+  font-size: 0.8rem;
   color: $text-blue;
+  margin: 0px;
+  padding: 0px;
 }

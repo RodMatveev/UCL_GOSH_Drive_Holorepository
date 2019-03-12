@@ -13,8 +13,8 @@ class PatientCard extends Component {
 
   render() {
     return (
-      <div className='patientCard'>
-        <div className='nameIdHolder'>
+      <div className='patientCardHome'>
+        <div className='nameIdHolderHome'>
           <div className='initials'>
             <p>JS</p>
           </div>
@@ -22,7 +22,7 @@ class PatientCard extends Component {
           <p>c8e705a6-2a35-4d63-82ec</p>
         </div>
         <div className='buttonHolder'>
-          <Link to={`case/1`}><button className='leftButton' onClick={(e) => console.log(e)}>View Profile</button></Link>
+          <Link to={`case/1`}><button className='leftButton' id='adjustFont' onClick={(e) => console.log(e)}>View Profile</button></Link>
           <button className='rightButton'>Available Scans</button>
         </div>
       </div>
