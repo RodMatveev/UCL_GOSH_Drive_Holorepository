@@ -57,7 +57,7 @@ var Tag = function (_Component) {
       var props = this.props;
 
       var label = props.tag[props.labelField];
-      console.log(props.tag.className);
+      //console.log(props.tag.className);
       var connectDragSource = props.connectDragSource,
           isDragging = props.isDragging,
           connectDropTarget = props.connectDropTarget,

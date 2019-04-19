@@ -16,10 +16,10 @@ class PatientCard extends Component {
       <div className='patientCardHome'>
         <div className='nameIdHolderHome'>
           <div className='initials'>
-            <p>JS</p>
+            <p>{this.props.initials}</p>
           </div>
-          <h4>John Smith</h4>
-          <p>c8e705a6-2a35-4d63-82ec</p>
+          <h4>{this.props.name}</h4>
+          <p>{this.props.patientId}</p>
         </div>
         <div className='buttonHolder'>
           <Link to={`case/1`}><button className='leftButton' id='adjustFont' onClick={(e) => console.log(e)}>View Profile</button></Link>

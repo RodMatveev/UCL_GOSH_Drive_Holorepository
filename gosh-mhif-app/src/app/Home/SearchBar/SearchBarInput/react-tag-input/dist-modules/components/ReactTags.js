@@ -58,7 +58,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var ReactTags = function (_Component) {
-  console.log("Shit happenin here too");
 
   _inherits(ReactTags, _Component);
 
@@ -428,7 +427,6 @@ ReactTags.defaultProps = {
 };
 
 var _initialiseProps = function _initialiseProps() {
-  console.log("Shit happenin");
 
   var _this5 = this;
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import { WithContext as ReactTags } from './react-tag-input';
 import './SearchBarInput.css';
+import search from '../../../../img/search.svg';
 
 const KeyCodes = {
   comma: 188,
   enter: 13,
 };
+
+var localTags = [];
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
@@ -14,27 +17,25 @@ class SearchBarInput extends React.Component {
         super(props);
 
         this.state = {
-            tags: [
-             ],
             suggestions: [
               //Body Parts
-              { id: "1.1", text: "Chest", className: "blue"},
-              { id: "1.2", text: "Abdomen", className: "blue"},
-              { id: "1.3", text: "Head", className: "blue"},
+              { id: "1.1", text: "Chest", query: "chest", className: "blue"},
+              { id: "1.2", text: "Abdomen", query: "abdomen", className: "blue"},
+              { id: "1.3", text: "Head", query: "head", className: "blue"},
               //Gender
-              { id: "2.1", text: "Male", className: "yellow"},
-              { id: "2.2", text: "Female", className: "yellow"},
+              { id: "2.1", text: "Male", query: "male", className: "yellow"},
+              { id: "2.2", text: "Female", query: "female", className: "yellow"},
               //Specific Organs
-              { id: "3.1", text: "Lungs", className: "red"},
+              { id: "3.1", text: "Lungs", query: "lung", className: "red"},
               { id: "3.2", text: "Liver", className: "red"},
               { id: "3.3", text: "Pancreas", className: "red"},
               { id: "3.4", text: "Cerebellum", className: "red"},
               //Age Ranges
-              { id: "4.1", text: "0-9", className: "violet"},
-              { id: "4.2", text: "10-19", className: "violet"},
-              { id: "4.3", text: "20-39", className: "violet"},
-              { id: "4.4", text: "40-59", className: "violet"},
-              { id: "4.5", text: "60-99", className: "violet"}
+              { id: "4.1", text: "0-9", query:"0-9", className: "violet"},
+              { id: "4.2", text: "10-19", query:"10-19", className: "violet"},
+              { id: "4.3", text: "20-39", query:"20-39", className: "violet"},
+              { id: "4.4", text: "40-59", query:"40-59", className: "violet"},
+              { id: "4.5", text: "60-99", query:"60-99", className: "violet"}
              ]
         };
         this.handleDelete = this.handleDelete.bind(this);
@@ -43,15 +44,22 @@ class SearchBarInput extends React.Component {
     }
 
     handleDelete(i) {
-        const { tags } = this.state;
-        this.setState({
-         tags: tags.filter((tag, index) => index !== i),
+        localTags.splice(i, 1);
+        console.log(localTags);
+        this.setState({ tags: localTags
+        }, function () {
+          this.props.callbackFromParent(localTags);
         });
     }
 
     handleAddition(tag) {
-        this.setState(state => ({ tags: [...state.tags, tag] }));
-        console.log(this.state.tags);
+        console.log(tag);
+        localTags.push(tag);
+        console.log(localTags);
+        this.setState({ tags: localTags
+        }, function () {
+          this.props.callbackFromParent(localTags);
+        });
     }
 
     handleDrag(tag, currPos, newPos) {
@@ -61,23 +69,27 @@ class SearchBarInput extends React.Component {
         newTags.splice(currPos, 1);
         newTags.splice(newPos, 0, tag);
 
-        // re-render
         this.setState({ tags: newTags });
     }
 
     render() {
         const { tags, suggestions } = this.state;
         return (
-          <ReactTags
-            inline tags={tags}
-            id="inputId"
-            suggestions={suggestions}
-            handleDelete={this.handleDelete}
-            handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag}
-            delimiters={delimiters}
-            autocomplete={false}
-          />
+          <div className='searchBg'>
+            <div className='allOfSearch'>
+              <img src={search} className='searchIcon'/>
+              <ReactTags
+                inline tags={tags}
+                id="inputId"
+                suggestions={suggestions}
+                handleDelete={this.handleDelete}
+                handleAddition={this.handleAddition}
+                handleDrag={this.handleDrag}
+                delimiters={delimiters}
+                autocomplete={false}
+              />
+            </div>
+          </div>
         )
     }
 }
