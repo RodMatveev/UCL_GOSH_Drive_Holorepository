@@ -8,15 +8,16 @@ const KeyCodes = {
   enter: 13,
 };
 
-var localTags = [];
+var localTags;
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 class SearchBarInput extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
+            tags: [
+            ],
             suggestions: [
               //Body Parts
               { id: "1.1", text: "Chest", query: "chest", className: "blue"},
@@ -41,25 +42,56 @@ class SearchBarInput extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
         this.handleDrag = this.handleDrag.bind(this);
+        this.sendCallback = this.sendCallback.bind(this);
+
+        localTags = [];
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+      console.log("Next state in Search Input: ");
+      console.log(nextState);
+      console.log("Num of tags in next state: ", nextState.tags.length);
+      return true;
     }
 
     handleDelete(i) {
-        localTags.splice(i, 1);
+        /*localTags.splice(i, 1);
         console.log(localTags);
         this.setState({ tags: localTags
         }, function () {
           this.props.callbackFromParent(localTags);
+        });*/
+        const { tags } = this.state;
+        this.setState({ tags: tags.filter((tag, index) => index !== i) }, function() {
+          localTags = localTags.filter((tag, index) => index !== i);
+          console.log("////////////////Local after deletion: ", [localTags]);
+          this.sendCallback([localTags]);
         });
     }
 
+    sendCallback(arrayToSend){
+      console.log("***************arrayToSend after spread:", arrayToSend);
+      this.props.callbackFromParent(arrayToSend);
+    }
+
     handleAddition(tag) {
-        console.log(tag);
-        localTags.push(tag);
-        console.log(localTags);
-        this.setState({ tags: localTags
-        }, function () {
-          this.props.callbackFromParent(localTags);
+        // console.log(tag);
+        // console.log('LocalTags length: ' + localTags.length);
+        //let newArray = localTags.concat(tag.query);
+        //console.log("***************Local Tags after concat:", newArray);
+        this.setState({ tags: [...this.state.tags, tag] }, function() {
+          console.log("*******************Local Tags before spread:", localTags);
+          localTags.push(tag.query);
+          this.sendCallback([localTags]);
         });
+        /*this.setState(state => ({ tags: [...state.tags, tag]
+        }, function () {
+          console.log("Sending Callback");
+          this.props.callbackFromParent(this.state.tags);
+        }));*/
+        //this.setState(state => ({ tags: [...state.tags, tag]}));
+        //this.props.callbackFromParent(tag);
+        //console.log(this.state.tags);
     }
 
     handleDrag(tag, currPos, newPos) {
