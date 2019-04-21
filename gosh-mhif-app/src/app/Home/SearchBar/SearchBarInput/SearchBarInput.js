@@ -20,17 +20,17 @@ class SearchBarInput extends React.Component {
             ],
             suggestions: [
               //Body Parts
-              { id: "1.1", text: "Chest", query: "chest", className: "blue"},
-              { id: "1.2", text: "Abdomen", query: "abdomen", className: "blue"},
-              { id: "1.3", text: "Head", query: "head", className: "blue"},
+              /*{ id: "1.1", text: "Urinary", query: "urinary", className: "blue"},
+              { id: "1.2", text: "Spinal", query: "spinal", className: "blue"},
+              { id: "1.3", text: "Skin", query: "skin", className: "blue"},*/
               //Gender
-              { id: "2.1", text: "Male", query: "male", className: "yellow"},
-              { id: "2.2", text: "Female", query: "female", className: "yellow"},
+              { id: "1.1", text: "Male", query: "male", className: "yellow"},
+              { id: "1.2", text: "Female", query: "female", className: "yellow"},
               //Specific Organs
-              { id: "3.1", text: "Lungs", query: "lung", className: "red"},
-              { id: "3.2", text: "Liver", className: "red"},
-              { id: "3.3", text: "Pancreas", className: "red"},
-              { id: "3.4", text: "Cerebellum", className: "red"},
+              { id: "2.1", text: "Urinary", query: "urinary", className: "blue"},
+              { id: "2.2", text: "Spinal", query: "spinal", className: "blue"},
+              { id: "2.3", text: "Skin", query: "skin", className: "blue"},
+              { id: "2.4", text: "Lung", query: "lung", className: "blue"},
               //Age Ranges
               { id: "4.1", text: "0-9", query:"0-9", className: "violet"},
               { id: "4.2", text: "10-19", query:"10-19", className: "violet"},
@@ -81,7 +81,11 @@ class SearchBarInput extends React.Component {
         //console.log("***************Local Tags after concat:", newArray);
         this.setState({ tags: [...this.state.tags, tag] }, function() {
           console.log("*******************Local Tags before spread:", localTags);
-          localTags.push(tag.query);
+          if(tag.query){
+            localTags.push(tag.query);
+          }else{
+            localTags.push(tag.text);
+          }
           this.sendCallback([localTags]);
         });
         /*this.setState(state => ({ tags: [...state.tags, tag]
@@ -119,6 +123,7 @@ class SearchBarInput extends React.Component {
                 handleDrag={this.handleDrag}
                 delimiters={delimiters}
                 autocomplete={false}
+                allowDragDrop={false}
               />
             </div>
           </div>

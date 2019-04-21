@@ -37,7 +37,9 @@ class Home extends Component {
         //console.log(this.state.searchResults);
       })
       .catch((error) => {
-        console.error(error)
+        console.log("Error in getting query: ");
+        console.error(error);
+        this.setState({ searchResults: [] });
     })
   }
 
@@ -107,7 +109,7 @@ class Home extends Component {
         </div>
         <div className='patientCardsHolder'>
         {this.state.searchResults.map((patient, index) => (
-          <PatientCard key={index} name={patient.firstName + " " + patient.lasrName} patientId={patient.patientId} initials={this.generateInitials(patient.firstName, patient.lasrName)}/>
+          <PatientCard key={index} patientInfo={patient} name={patient.firstName + " " + patient.lasrName} patientId={patient.patientId} initials={this.generateInitials(patient.firstName, patient.lasrName)}/>
         ))}
         </div>
       </div>

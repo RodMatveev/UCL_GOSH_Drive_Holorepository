@@ -12,9 +12,8 @@ class Data extends Component {
   render() {
     return (
       <div>
-
         <div className='patientCardsHolder'>
-          <DataPatientCard />
+          <DataPatientCard patientInfo={this.props.location.state.patientInfo}/>
         </div>
       </div>
     );

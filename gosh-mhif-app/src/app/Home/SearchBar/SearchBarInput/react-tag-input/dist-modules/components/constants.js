@@ -12,7 +12,7 @@ var KEYS = exports.KEYS = {
   ESCAPE: 27
 };
 
-var DEFAULT_PLACEHOLDER = exports.DEFAULT_PLACEHOLDER = 'Add new tag';
+var DEFAULT_PLACEHOLDER = exports.DEFAULT_PLACEHOLDER = '(Try "Male" or "40-59")';
 
 var DEFAULT_LABEL_FIELD = exports.DEFAULT_LABEL_FIELD = 'text';
 

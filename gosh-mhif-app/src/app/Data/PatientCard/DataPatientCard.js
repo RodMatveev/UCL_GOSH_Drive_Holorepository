@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './DataPatientCard.css';
 import AddModel from '../AddModel/AddModel'
 
@@ -6,6 +7,42 @@ class PatientCard extends Component {
 
   constructor(props) {
     super(props);
+    console.log("Props passed to DataPatientCard: ", props);
+    this.state = {
+      meshResults: []
+    };
+    this.capitalise = this.capitalise.bind(this);
+    this.generateInitials = this.generateInitials.bind(this);
+    this.fetchMeshes = this.fetchMeshes.bind(this);
+  }
+
+  capitalise(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  generateInitials (firstName, lastName) {
+    var both = firstName + " " + lastName;
+    return both.split(" ").map((n)=>n[0]).join("");
+  }
+
+  fetchMeshes() {
+    // console.log(this.state.queryDataFromSearch);
+    var queryUrl = 'http://localhost:8081/myapp/patient/search_mesh/' + this.props.patientInfo.patientId;
+    console.log("URL: " + queryUrl);
+    fetch(queryUrl)
+      .then(response => response.json())
+      .then((jsonData) => {
+        console.log("Mesh Results: ", jsonData);
+        this.setState(state => ({ meshResults: jsonData }));
+      })
+      .catch((error) => {
+        console.error(error)
+    })
+  }
+
+  componentDidMount(){
+    console.log("Mounted");
+    this.fetchMeshes();
   }
 
   render() {
@@ -14,10 +51,10 @@ class PatientCard extends Component {
         <div className='patientCard wide'>
           <div className='nameIdHolder'>
             <div className='initials'>
-              <p>JS</p>
+              <p>{this.generateInitials(this.props.patientInfo.firstName, this.props.patientInfo.lasrName)}</p>
             </div>
-            <h4>John Smith</h4>
-            <p>c8e705a6-2a35-4d63-82ec</p>
+            <h4>{this.props.patientInfo.firstName + " " + this.props.patientInfo.lasrName}</h4>
+            <p>ID — {this.props.patientInfo.patientId}</p>
           </div>
           <div className='dataButtonHolder'>
             <button id="active">Profile</button>
@@ -30,33 +67,37 @@ class PatientCard extends Component {
         <div className="detailHolder wide">
           <div className="detailCard">
             <h4>GENDER</h4>
-            <p>Male</p>
+            <p>{this.capitalise(this.props.patientInfo.gender)}</p>
           </div>
           <div className="detailCard">
             <h4>AGE</h4>
-            <p>54 years</p>
+            <p>{this.props.patientInfo.age + " years"}</p>
           </div>
           <div className="detailCard">
             <h4>DATE OF BIRTH</h4>
-            <p>09-12-1978</p>
+            <p>{this.props.patientInfo.DateOfBirth}</p>
           </div>
           <div className="detailCard">
             <h4>EMAIL</h4>
-            <p>Unknown</p>
+            <p>{this.props.patientInfo.email}</p>
           </div>
           <div className="detailCard">
             <h4>ADDRESS</h4>
-            <p>Malet Place, Euston<br></br>EC2A 2DF,<br></br>London</p>
+            <p>{this.props.patientInfo.address.split(",").map(function(line, i) {
+                    return <p key={i}>{line}</p>
+                  })}</p>
           </div>
           <div className="detailCard">
             <h4>ID CODE</h4>
-            <p>c8e705a6-2a35-4d63-82ec</p>
+            <p>{this.props.patientInfo.patientId}</p>
           </div>
         </div>
         <div className="scanHolder">
           <h4>Patient 3D Scans</h4>
           <div className="scanCardHolder">
-            <AddModel />
+          {this.state.meshResults.map((result, index) => (
+            <AddModel key={index} meshName={result.meshName} meshAuthor={result.author} patientId={this.props.patientInfo.patientId}/>
+          ))}
           </div>
         </div>
       </div>
