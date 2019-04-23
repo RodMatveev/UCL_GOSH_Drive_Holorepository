@@ -65,6 +65,12 @@ div[class^='col-'], div[class*=' col']{
   border-radius: 20px;
 }
 
+.profileImgImg{
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
 .profileDetailsHolder {
   display: flex;
   flex-direction: column;

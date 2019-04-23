@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar } from 'react-bootstrap';
 import './AppNavBar.css';
-import logo from '../../img/logo.png'
+import logo from '../../img/logo.png';
+import doc from '../../img/doc.jpg';
 import { HashRouter as Router, Route, Link
  } from "react-router-dom";
 
@@ -41,7 +42,9 @@ class AppNavBar extends Component {
             </Col>
           </Router>
           <Col md={3} className='profileHolder'>
-            <div className='profileImg'></div>
+            <div className='profileImg'>
+              <img src={doc} className='profileImgImg' />
+            </div>
             <div className='profileDetailsHolder'>
               <h3><span className="semiText">Dr Sally Davis</span></h3>
               <h3>University College Hospital</h3>

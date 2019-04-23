@@ -2,12 +2,14 @@
   "name": "gosh-mhif-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hololens-webapp-190422163731.azurewebsites.net/",
   "dependencies": {
     "base64-arraybuffer": "^0.1.5",
     "bloomer": "^0.6.3",
     "bootstrap": "^3.4.0",
     "bulma": "^0.7.1",
     "bulma-extensions": "^2.2.1",
+    "gh-pages": "^2.0.1",
     "markdown-to-jsx": "^6.7.2",
     "moment": "^2.22.2",
     "node-sass-chokidar": "^1.3.3",
@@ -43,6 +45,7 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   }
 }
