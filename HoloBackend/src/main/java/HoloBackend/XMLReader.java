@@ -10,8 +10,7 @@ import org.w3c.dom.*;
 
 public class XMLReader {
 
-    public Map<String, String> ReadPatientDetail(File file)
-    {
+    public Map<String, String> ReadPatientDetail(File file) {
         try {
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -26,16 +25,20 @@ public class XMLReader {
             String lastName = doc.getElementsByTagName("lastName").item(0).getTextContent();
             String DateOfBirth = doc.getElementsByTagName("DateOfBirth").item(0).getTextContent();
             String age = doc.getElementsByTagName("age").item(0).getTextContent();
-            Map<String,String> patient_map = new HashMap<String,String>();
-            patient_map.put("patientId",patientId);
-            patient_map.put("lastEditedBy",lastEditedBy);
-            patient_map.put("revisionNumber",revisionNumber);
-            patient_map.put("timeOfLastEdit",timeOfLastEdit);
-            patient_map.put("gender",gender);
-            patient_map.put("firstName",firstName);
-            patient_map.put("lasrName",lastName);
-            patient_map.put("DateOfBirth",DateOfBirth);
-            patient_map.put("age",age);
+            String address = doc.getElementsByTagName("address").item(0).getTextContent();
+            String email = doc.getElementsByTagName("email").item(0).getTextContent();
+            Map<String, String> patient_map = new HashMap<String, String>();
+            patient_map.put("patientId", patientId);
+            patient_map.put("lastEditedBy", lastEditedBy);
+            patient_map.put("revisionNumber", revisionNumber);
+            patient_map.put("timeOfLastEdit", timeOfLastEdit);
+            patient_map.put("gender", gender);
+            patient_map.put("firstName", firstName);
+            patient_map.put("lasrName", lastName);
+            patient_map.put("DateOfBirth", DateOfBirth);
+            patient_map.put("age", age);
+            patient_map.put("address", address);
+            patient_map.put("email", email);
             return patient_map;
 
         } catch (Exception e) {
@@ -46,8 +49,7 @@ public class XMLReader {
     }
 
 
-    public ArrayList<Map<String, String>> ReadMeshes(File file)
-    {
+    public ArrayList<Map<String, String>> ReadMeshes(File file) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -56,28 +58,25 @@ public class XMLReader {
             NodeList nodeList = ((Element) meshes_node).getElementsByTagName("mesh"); // store each mesh
 
 
-            ArrayList<Map<String,String>> mesh_collection = new ArrayList<Map<String,String>>();
-            for (int j = 0 ; j<= nodeList.getLength()-1 ;j++)
-            {
-                Map<String,String> mesh_map = new HashMap<String, String>();
-                mesh_map.put("meshName",((Element)nodeList.item(j)).getElementsByTagName("meshName").item(0).getTextContent());
-                mesh_map.put("fileType",((Element)nodeList.item(j)).getElementsByTagName("fileType").item(0).getTextContent());
-                mesh_map.put("author",((Element)nodeList.item(j)).getElementsByTagName("author").item(0).getTextContent());
-                mesh_map.put("timeOfAddition",((Element)nodeList.item(j)).getElementsByTagName("timeOfAddition").item(0).getTextContent());
-                mesh_map.put("revisionNumber",((Element)nodeList.item(j)).getElementsByTagName("revisionNumber").item(0).getTextContent());
-                mesh_map.put("rawData",((Element)nodeList.item(j)).getElementsByTagName("rawData").item(0).getTextContent());
+            ArrayList<Map<String, String>> mesh_collection = new ArrayList<Map<String, String>>();
+            for (int j = 0; j <= nodeList.getLength() - 1; j++) {
+                Map<String, String> mesh_map = new HashMap<String, String>();
+                mesh_map.put("meshName", ((Element) nodeList.item(j)).getElementsByTagName("meshName").item(0).getTextContent());
+                //mesh_map.put("fileType",((Element)nodeList.item(j)).getElementsByTagName("fileType").item(0).getTextContent());
+                mesh_map.put("author", ((Element) nodeList.item(j)).getElementsByTagName("author").item(0).getTextContent());
+                //mesh_map.put("timeOfAddition",((Element)nodeList.item(j)).getElementsByTagName("timeOfAddition").item(0).getTextContent());
+                //mesh_map.put("revisionNumber",((Element)nodeList.item(j)).getElementsByTagName("revisionNumber").item(0).getTextContent());
+                //mesh_map.put("rawData",((Element)nodeList.item(j)).getElementsByTagName("rawData").item(0).getTextContent());
                 mesh_collection.add(mesh_map);
             }
             return mesh_collection;
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public ArrayList<Map<String, String>> ReadAnnotations(File file)
-    {
+    public ArrayList<Map<String, String>> ReadAnnotations(File file) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -86,26 +85,36 @@ public class XMLReader {
             NodeList nodeList = ((Element) annotations_node).getElementsByTagName("annotation"); // store each mesh
 
 
-            ArrayList<Map<String,String>> mesh_collection = new ArrayList<Map<String,String>>();
-            for (int j = 0 ; j<= nodeList.getLength()-1 ;j++)
-            {
-                Map<String,String> annotation_map = new HashMap<String, String>();
-                annotation_map.put("author",((Element)nodeList.item(j)).getElementsByTagName("author").item(0).getTextContent());
-                annotation_map.put("timeOfEdit",((Element)nodeList.item(j)).getElementsByTagName("timeOfEdit").item(0).getTextContent());
-                annotation_map.put("revisionNumber",((Element)nodeList.item(j)).getElementsByTagName("revisionNumber").item(0).getTextContent());
-                annotation_map.put("annotationData",((Element)nodeList.item(j)).getElementsByTagName("annotationData").item(0).getTextContent());
+            ArrayList<Map<String, String>> mesh_collection = new ArrayList<Map<String, String>>();
+            for (int j = 0; j <= nodeList.getLength() - 1; j++) {
+                Map<String, String> annotation_map = new HashMap<String, String>();
+                annotation_map.put("author", ((Element) nodeList.item(j)).getElementsByTagName("author").item(0).getTextContent());
+                annotation_map.put("timeOfEdit", ((Element) nodeList.item(j)).getElementsByTagName("timeOfEdit").item(0).getTextContent());
+                annotation_map.put("revisionNumber", ((Element) nodeList.item(j)).getElementsByTagName("revisionNumber").item(0).getTextContent());
+                annotation_map.put("annotationData", ((Element) nodeList.item(j)).getElementsByTagName("annotationData").item(0).getTextContent());
                 mesh_collection.add(annotation_map);
             }
             return mesh_collection;
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    public boolean Element_Checker(File file, String id) {
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(file);
+            NodeList nodeList = doc.getElementsByTagName("patientCase");
+            Node patient = nodeList.item(0);
+            if (id.equals(patient.getAttributes().getNamedItem("id").getNodeValue())) {
+                return true;
+            }
 
-
-
-
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

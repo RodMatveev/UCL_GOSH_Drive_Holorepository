@@ -64,11 +64,11 @@ public class RetrievePatient {
         return null;
     }
 
-    @Path("/search_mesh/{id_of_patient}/{searching_detail}")
+    @Path("/search_mesh/{id_of_patient}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String GetRawData(@PathParam("id_of_patient") String id,
-                             @PathParam("searching_detail") String searching_detail) {
+    public String GetRawData(@PathParam("id_of_patient") String id
+                             ) {
         id = id + ".mhif.xml";
         try {
             this.storageAccount = CloudStorageAccount.parse(storageConnectionString);
@@ -86,14 +86,13 @@ public class RetrievePatient {
             JSONArray array = new JSONArray();
 
             for (Map<String, String> map : reader.ReadMeshes(Downloaded)) {
-                if (map.containsValue(searching_detail)) {
                     array.put(map);
-                }
+
             }
             if (array.length() != 0) {
                 return array.toString();
             } else {
-                return "no mesh include this " + searching_detail + " element";
+                return "no mesh could find";
             }
 
 
@@ -249,7 +248,7 @@ public class RetrievePatient {
         return null;
     }
 
-    @Path("search_3/{detail1}/{detail2}/{detail3}")
+    @Path("/search_3/{detail1}/{detail2}/{detail3}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String search_3(@PathParam("detail1") String detail1,
@@ -308,6 +307,44 @@ public class RetrievePatient {
             System.out.println(ex.getMessage());
         }
         return null;
+    }
+    @GET
+    @Path("/pipline/{id_of_patient}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String pipline(@PathParam("id_of_patient") String id_of_patient)
+    {
+        try {
+            this.storageAccount = CloudStorageAccount.parse(storageConnectionString);
+            this.blobClient = storageAccount.createCloudBlobClient();
+            this.container = blobClient.getContainerReference("tempblob");
+            this.container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobRequestOptions(), new OperationContext());
+            for(ListBlobItem blobItem : this.container.listBlobs())
+            {
+                if(blobItem instanceof CloudBlockBlob)
+                {
+                    CloudBlockBlob blockBlob = (CloudBlockBlob) blobItem;
+                    File temp_xml = File.createTempFile("temp", "xml");
+                    File Downloaded = new File(temp_xml.getParent(), "DownloadedXml.xml");
+                    blockBlob.downloadToFile(Downloaded.getAbsolutePath());
+                    XMLReader reader = new XMLReader();
+                    if(reader.Element_Checker(Downloaded,id_of_patient))
+                    {
+                        CloudBlobContainer target_container = blobClient.getContainerReference("blob");
+                        CloudBlockBlob temp_blob = target_container.getBlockBlobReference(blockBlob.getName());
+                        temp_blob.upload(blockBlob.openInputStream(),Downloaded.getTotalSpace());
+                    }
+
+
+                }
+            }
+
+
+        } catch (StorageException ex) {
+            System.out.println(String.format("Error returned from the service. Http code: %d and error code: %s", ex.getHttpStatusCode(), ex.getErrorCode()));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    return null;
     }
 
 
